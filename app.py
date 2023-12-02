@@ -1,5 +1,39 @@
-import subPrograms
+import subPrograms, sys
 
+def displayMacros():
+    readData()
+
+def predefined():
+    with open("food.csv", "r") as file:
+        for item in file:
+            print(item)
+
+def manualEntry():
+    print("Manual")
+
+def readData():
+    with open("data.csv", "r") as file:
+        for item in file:
+            print(item)
+    
+
+def exitProgram():
+    while True:
+        userInput = input("Exit Program? (y/n): ")
+        userInput = userInput.lower()
+        if userInput == 'y':
+            print("buh-bye")
+            sys.exit()
+        elif userInput == 'n':
+            main()
+            break
+        else:
+            print("Wrong input. Try again")
+
+
+
+def deleteRecords():
+    print("Delete")
 
 def main():
 
@@ -15,19 +49,19 @@ def main():
         userInput = input("> ")
 
         if userInput == "1":
-            subPrograms.displayMacros()
+            displayMacros()
             break
         elif userInput == "2":
-            subPrograms.predefined()
+            predefined()
             break
         elif userInput == "3":
-            subPrograms.manualEntry()
+            manualEntry()
             break
         elif userInput == "4":
-            subPrograms.deleteRecords()
+            deleteRecords()
             break
         elif userInput == "5":
-            subPrograms.exitProgram()
+            exitProgram()
             break
         else:
             print("Incorrect Input. Try again")
